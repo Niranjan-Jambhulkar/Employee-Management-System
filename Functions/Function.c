@@ -73,10 +73,15 @@ void Display (Employee emp[]){
 }
 
 void Attendance (Employee emp[]){
-    
-    for (int i = 0; i < size; i++)
+    printf("\nID\tName\t\tDepartment\t\tDate of Join\tAttendance\n");
+    for (int i = 0; i < 80; i++)
     {
-        printf("\n%d       %s        %s            %f        %s\n", emp[i].emp_ID, emp[i].emp_Name, emp[i].Department,emp[i].emp_salary, emp[i].Date_of_join);
+        printf("-");
+    }
+    printf("\n");
+    for (int i = 0; i < size; i++)
+    { 
+        printf("%d       %s        %s            %s        %d per\n", emp[i].emp_ID, emp[i].emp_Name, emp[i].Department, emp[i].Date_of_join);
     }
     
 }
