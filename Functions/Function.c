@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+static int size = 3;
 typedef struct Employees
 {
     int emp_ID;
@@ -11,7 +12,7 @@ void accept (Employee []);
 void Display (Employee []);
 
 void accept (Employee emp[]){
-    for (int i = 3; i < 5; i++)
+    for (int i = size; i <= size; i++)
     {
         printf("Enter Employee ID: ");
         scanf("%d", &emp[i].emp_ID);
@@ -19,8 +20,9 @@ void accept (Employee emp[]){
         scanf("%s", emp[i].emp_Name);
         printf("Enter Employee Salary: ");
         scanf("%f", &emp[i].emp_salary);
-
+        break;
     }
+    size++;
     
 }
 
@@ -37,7 +39,7 @@ void Display (Employee emp[]){
     strcpy(emp[2].emp_Name,"Raju");
     emp[2].emp_salary = 65000;
     printf("ID\tName\t\tSalary\n");
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < size; i++)
     { 
         printf("%d\t%s\t\t%f\n", emp[i].emp_ID, emp[i].emp_Name,emp[i].emp_salary);
     }

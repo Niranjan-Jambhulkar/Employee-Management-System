@@ -3,9 +3,9 @@
 #include "E:\C Project\Employee Management System\Functions\Function.c"
 int main()
 {
-    static Employee emp[5];
+    static Employee emp[100];
     Employee *ptr;
-    ptr = &emp;
+    ptr = emp;  // emp is array so don't use "&" operator 
     int Menu;
     printf("\t-------Employee Management System-------\n");
     printf("1. To Add Employee\n");
@@ -18,18 +18,17 @@ int main()
     case 1:
         accept(ptr);
         int a=0;
-        printf("1. Add number\n2. Menu");
+        printf("1. Add number\n2. Menu\n");
         printf("Enter: ");
         scanf("%d", &a);
-        if (a == 1)
+        for (; a != 2;)
         {
             accept(ptr);
+            printf("1. Add number\n2. Menu\n");
+            printf("Enter: ");
+            scanf("%d", &a);
         }
-        else if (a ==2)
-        {
-           main();
-        }
-        
+        main();
         break;
     
     case 2:
