@@ -7,11 +7,14 @@ int main()
     // declaring in static because it should remain constant without changing or deleting its given value throughout the program
     static Employee emp[100];
     Employee *ptr;
+    static Product prd[100];
+    Product *ptr1;
 
     ptr = emp;  // emp is array so don't use "&" operator 
+    ptr1 = prd;
 
     // We run Hard data function before menu because we need to assign data for 0,1,2 index first.
-    Hard_data(ptr);
+    Hard_data(ptr,ptr1);
 
     // Main Menu start
     int Menu;
@@ -23,14 +26,14 @@ int main()
     {
     fflush(stdin);
     case 1:
-        Accept(ptr);
+        Accept(ptr,ptr1);
         int a=0;
         printf("\n1. Add number\n2. Menu\n");
         printf("Enter: ");
         scanf("%d", &a);
         for (; a != 2;)
         {
-            Accept(ptr);
+            Accept(ptr,ptr1);
             printf("1. Add number\n2. Menu\n");
             printf("Enter: ");
             scanf("%d", &a);
@@ -39,7 +42,7 @@ int main()
         break;
     
     case 2:
-        Display(emp);
+        Display(emp,ptr1);
         printf("\nPress any integer for Main menu\n");
         printf("Enter: ");
         scanf("%d", &a);
@@ -51,7 +54,7 @@ int main()
 
     case 3:
         printf("Attendance of Employees");
-        Attendance(ptr);
+        Attendance(ptr,ptr1);
 
     default:
         break;
