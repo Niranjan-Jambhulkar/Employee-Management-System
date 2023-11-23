@@ -5,24 +5,29 @@ int main()
 {
     static Employee emp[100];
     Employee *ptr;
+
     ptr = emp;  // emp is array so don't use "&" operator 
+    
+    // We run Hard data function before menu because we need to assign data for 0,1,2 index first.
+    Hard_data(ptr);
+
     int Menu;
     printf("\n\t-------Employee Management System-------\n");
-    printf("1. Add Employee\n2. View Employee\n3. View Attendance");
+    printf("1. Add Employee\n2. View Employee\n3. View Attendance\n");
     printf("Select one option: ");
     scanf("%d", &Menu);  
     switch (Menu)
     {
     fflush(stdin);
     case 1:
-        accept(ptr);
+        Accept(ptr);
         int a=0;
         printf("\n1. Add number\n2. Menu\n");
         printf("Enter: ");
         scanf("%d", &a);
         for (; a != 2;)
         {
-            accept(ptr);
+            Accept(ptr);
             printf("1. Add number\n2. Menu\n");
             printf("Enter: ");
             scanf("%d", &a);
@@ -43,6 +48,7 @@ int main()
 
     case 3:
         printf("Attendance of Employees");
+        Attendance(ptr);
 
     default:
         break;
