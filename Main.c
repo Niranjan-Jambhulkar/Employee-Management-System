@@ -33,6 +33,14 @@ int main()
     
     case 2:
         Display(emp);
+        printf("\nPress any integer for Main menu\n");
+        printf("Enter: ");
+        scanf("%d", &a);
+        for (; a != -1;)
+        {
+            main();
+        }
+        
         break;
 
     default:
