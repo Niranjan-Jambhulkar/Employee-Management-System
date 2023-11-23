@@ -1,26 +1,44 @@
 #include<stdio.h>
 #include<string.h>
 #include "E:\C Project\Employee Management System\Functions\Function.c"
-int main(int argc, char const *argv[])
+int main()
 {
-    Employee emp[20];
+    static Employee emp[5];
+    Employee *ptr;
+    ptr = &emp;
     int Menu;
     printf("\t-------Employee Management System-------\n");
     printf("1. To Add Employee\n");
     printf("2. To View Employee\n");
     printf("Select one option: ");
-    scanf("%d", &Menu);
+    scanf("%d", &Menu);  
     switch (Menu)
     {
+    fflush(stdin);
     case 1:
-        printf("Hi");
+        accept(ptr);
+        int a=0;
+        printf("1. Add number\n2. Menu");
+        printf("Enter: ");
+        scanf("%d", &a);
+        if (a == 1)
+        {
+            accept(ptr);
+        }
+        else if (a ==2)
+        {
+           main();
+        }
+        
         break;
+    
     case 2:
-        Display_Employee();
+        Display(emp);
         break;
+
     default:
         break;
     }
+    
     return 0;
 }
-

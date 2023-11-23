@@ -10,6 +10,27 @@ typedef struct Employees
 void accept (Employee []);
 void Display (Employee []);
 
+int main(int argc, char const *argv[])
+{
+    Employee emp[5];
+    Employee *ptr;
+    ptr = &emp;
+    emp[0].emp_ID = 1;
+    strcpy(emp[0].emp_Name,"Raj");
+    emp[0].emp_salary = 50000;
+
+    emp[1].emp_ID = 2;
+    strcpy(emp[1].emp_Name,"Rahul");
+    emp[1].emp_salary = 60000;
+
+    emp[2].emp_ID = 3;
+    strcpy(emp[2].emp_Name,"Raju");
+    emp[2].emp_salary = 65000;
+    accept(ptr);
+    Display(ptr);
+    return 0;
+}
+
 void accept (Employee emp[]){
     for (int i = 3; i < 5; i++)
     {
@@ -25,17 +46,7 @@ void accept (Employee emp[]){
 }
 
 void Display (Employee emp[]){ 
-    emp[0].emp_ID = 1;
-    strcpy(emp[0].emp_Name,"Raj");
-    emp[0].emp_salary = 50000;
-
-    emp[1].emp_ID = 2;
-    strcpy(emp[1].emp_Name,"Rahul");
-    emp[1].emp_salary = 60000;
-
-    emp[2].emp_ID = 3;
-    strcpy(emp[2].emp_Name,"Raju");
-    emp[2].emp_salary = 65000;
+    
     printf("ID\tName\t\tSalary\n");
     for (int i = 0; i < 5; i++)
     { 
