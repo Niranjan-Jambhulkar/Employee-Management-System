@@ -7,9 +7,8 @@ int main()
     Employee *ptr;
     ptr = emp;  // emp is array so don't use "&" operator 
     int Menu;
-    printf("\t-------Employee Management System-------\n");
-    printf("1. To Add Employee\n");
-    printf("2. To View Employee\n");
+    printf("\n\t-------Employee Management System-------\n");
+    printf("1. Add Employee\n2. View Employee\n3. View Attendance");
     printf("Select one option: ");
     scanf("%d", &Menu);  
     switch (Menu)
@@ -18,7 +17,7 @@ int main()
     case 1:
         accept(ptr);
         int a=0;
-        printf("1. Add number\n2. Menu\n");
+        printf("\n1. Add number\n2. Menu\n");
         printf("Enter: ");
         scanf("%d", &a);
         for (; a != 2;)
@@ -40,8 +39,10 @@ int main()
         {
             main();
         }
-        
         break;
+
+    case 3:
+        printf("Attendance of Employees");
 
     default:
         break;
