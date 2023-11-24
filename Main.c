@@ -18,7 +18,7 @@ int main()
 
     // Main Menu start
     int Menu;
-    printf("\n\t-------Employee Management System-------\n");
+    printf("\n--------Employee Management System--------\n");
     printf("1. Add Employee\n2. View Employee\n3. View Attendance\n");
     printf("Select one option: ");
     scanf("%d", &Menu);  
@@ -28,13 +28,15 @@ int main()
     case 1:
         Accept(ptr,ptr1);
         int a=0;
-        printf("\n1. Add number\n2. Menu\n");
+        printf("\n----Menu----");
+        printf("\n1. Add Employee\n2. Menu\n");
         printf("Enter: ");
         scanf("%d", &a);
         for (; a != 2;)
         {
             Accept(ptr,ptr1);
-            printf("1. Add number\n2. Menu\n");
+            printf("\n----Menu----");
+            printf("1. Add Employee\n2. Menu\n");
             printf("Enter: ");
             scanf("%d", &a);
         }
