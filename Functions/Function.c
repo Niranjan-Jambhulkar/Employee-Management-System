@@ -28,6 +28,7 @@ void Display (Employee [], Product []);
 void Productivity (Employee [], Product []);
 void Hard_data(Employee [], Product []);
 void Total_Employee (Employee [], int);
+void Employee_Details (Employee [], int);
 
 // Function Defintion 
 void Hard_data(Employee emp[], Product prd[]){
@@ -123,4 +124,13 @@ void Total_Employee (Employee emp[], int total_emp){
     {
         total_emp++;
     }
+}
+
+void Employee_Details (Employee emp[], int a){
+    for (int i = a-1; i < a;)
+    {
+        printf("%d       %s        %s            %s\n", emp[i].emp_ID, emp[i].emp_Name, emp[i].Department, emp[i].Date_of_join);
+        break;
+    }
+    
 }

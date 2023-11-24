@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<string.h>
-#include "E:\C Project\Employee Management System\Functions\Function.c"
+#include "E:\C Project\Employee Management System\Functions\Function.c"  // Linkage
 int main()
 {
     int total_emp=0;
@@ -77,13 +77,40 @@ int main()
     
     case 2:
         Display(ptre,ptrp);
-        printf("\nPress any integer for Main menu\n");
+        printf("\nEnter Employee ID to view more details of Employee\nPress 00 to Main Menu\n");
         printf("Enter: ");
         scanf("%d", &a);
-        for (; a != -1;)
+        for (int i = 1; i != 0; i++)
         {
-            main();
+            if (i == a)
+            {
+                Employee_Details(emp, a);
+                printf("\n");
+                printf("Press 1 to back: ");
+                int back;
+                scanf("%d", &back);
+                if (back == 1)
+                {
+                    Display(ptre,ptrp);
+                    printf("\n");
+                    printf("\nEnter Employee ID to view more details of Employee\nPress 0 to Main Menu\n");
+                    printf("Enter: ");
+                    scanf("%d", &a, &back);
+                }
+                else if (back == 0)
+                {
+                    main();
+                }
+            }
+            else if (a == 0)
+            {
+                main();
+            }
+            
         }
+        // if (a = 0){
+        //     main();
+        // }
         break;
 
     case 3:
