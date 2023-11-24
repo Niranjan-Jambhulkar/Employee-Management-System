@@ -57,7 +57,7 @@ void Hard_data(Employee emp[], Product prd[]){
     strcpy(emp[2].Department, "Sales Ext");
     strcpy(emp[2].Date_of_join, "25-04-2022");
     strcpy(emp[2].emp_Address, "Pune, Maharashtra, Pune");
-    emp[1].emp_Number = 915839194;
+    emp[2].emp_Number = 915839194;
     prd[2].Attendance = 80;
 }
 
@@ -67,6 +67,7 @@ void Accept (Employee emp[], Product prd[]){
     {
         printf("\nEnter Employee ID: ");
         scanf("%d", &emp[i].emp_ID);
+        // Using fflush to remove buffer
         fflush(stdin);
         printf("Enter Employee name: ");
         gets(emp[i].emp_Name);
@@ -77,11 +78,12 @@ void Accept (Employee emp[], Product prd[]){
         printf("Enter Department name: ");
         gets(emp[i].Department);
         printf("Enter Date of join: ");
-        gets(emp[i].Date_of_join);
-        // printf("Enter Address: ");
-        // gets(emp[i].emp_Address);
-        // printf("Enter Mobile Number: ");
-        // scanf("%d", &emp[i].emp_Number);
+        scanf("%10s",emp[i].Date_of_join);
+        fflush(stdin);
+        printf("Enter Address: ");
+        gets(emp[i].emp_Address);
+        printf("Enter Mobile Number: ");
+        scanf("%10d", &emp[i].emp_Number);
         // printf("Enter Attendance: ");
         // scanf("%d", &prd[i].Attendance);
         break;
@@ -91,6 +93,10 @@ void Accept (Employee emp[], Product prd[]){
 }
 
 void Display (Employee emp[], Product prd[]){ 
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
     printf("\nID\tName\t\tDepartment\t\tSalary\t\tDate of Join\n");
     for (int i = 0; i < 80; i++)
     {
@@ -129,7 +135,16 @@ void Total_Employee (Employee emp[], int total_emp){
 void Employee_Details (Employee emp[], int a){
     for (int i = a-1; i < a;)
     {
-        printf("%d       %s        %s            %s\n", emp[i].emp_ID, emp[i].emp_Name, emp[i].Department, emp[i].Date_of_join);
+        for (int i = 0; i < 80; i++)
+        {
+            printf("-");
+        }
+        printf("\nID: \t\t%d\nName: \t\t%s\nDepartment: \t%s\nDate of Join: \t%s\nAddress: \t%s\nMo. Number: \t%d\n", emp[i].emp_ID, emp[i].emp_Name, emp[i].Department, emp[i].Date_of_join, emp[i].emp_Address, emp[i].emp_Number);
+        for (int i = 0; i < 80; i++)
+        {
+            printf("-");
+        }
+        printf("\n");
         break;
     }
     

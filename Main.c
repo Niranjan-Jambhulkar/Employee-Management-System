@@ -77,13 +77,11 @@ int main()
     
     case 2:
         Display(ptre,ptrp);
-        printf("\nEnter Employee ID to view more details of Employee\nPress 00 to Main Menu\n");
+        printf("\nEnter Employee ID to view more details of Employee\nPress 0 to Main Menu\n");
         printf("Enter: ");
         scanf("%d", &a);
         for (; a != 0;)
         {
-            if (a == a)
-            {
                 Employee_Details(emp, a);
                 printf("\n");
                 printf("Press 1 to back: ");
@@ -96,16 +94,8 @@ int main()
                     printf("Enter: ");
                     scanf("%d", &a);
                 }
-                else if (a == 0)
-                {
-                    main();
-                }
-            }
-            
         }
-        if (a = 0){
-            main();
-        }
+        main();
         break;
 
     case 3:
