@@ -78,12 +78,12 @@ void Accept (Employee emp[], Product prd[]){
         gets(emp[i].Department);
         printf("Enter Date of join: ");
         gets(emp[i].Date_of_join);
-        printf("Enter Address: ");
-        gets(emp[i].emp_Address);
-        printf("Enter Mobile Number: ");
-        scanf("%d", &emp[i].emp_Number);
-        printf("Enter Attendance: ");
-        scanf("%d", &prd[i].Attendance);
+        // printf("Enter Address: ");
+        // gets(emp[i].emp_Address);
+        // printf("Enter Mobile Number: ");
+        // scanf("%d", &emp[i].emp_Number);
+        // printf("Enter Attendance: ");
+        // scanf("%d", &prd[i].Attendance);
         break;
     }
     size++;

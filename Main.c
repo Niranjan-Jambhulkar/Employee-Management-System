@@ -80,37 +80,32 @@ int main()
         printf("\nEnter Employee ID to view more details of Employee\nPress 00 to Main Menu\n");
         printf("Enter: ");
         scanf("%d", &a);
-        for (int i = 1; i != 0; i++)
+        for (; a != 0;)
         {
-            if (i == a)
+            if (a == a)
             {
                 Employee_Details(emp, a);
                 printf("\n");
                 printf("Press 1 to back: ");
-                int back;
-                scanf("%d", &back);
-                if (back == 1)
+                scanf("%d", &a);
+                if (a == 1)
                 {
                     Display(ptre,ptrp);
                     printf("\n");
                     printf("\nEnter Employee ID to view more details of Employee\nPress 0 to Main Menu\n");
                     printf("Enter: ");
-                    scanf("%d", &a, &back);
+                    scanf("%d", &a);
                 }
-                else if (back == 0)
+                else if (a == 0)
                 {
                     main();
                 }
             }
-            else if (a == 0)
-            {
-                main();
-            }
             
         }
-        // if (a = 0){
-        //     main();
-        // }
+        if (a = 0){
+            main();
+        }
         break;
 
     case 3:
