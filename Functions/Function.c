@@ -25,8 +25,9 @@ typedef struct Employees
 // Function Declaration
 void Accept (Employee [], Product []);
 void Display (Employee [], Product []);
-void Attendance (Employee [], Product []);
+void Productivity (Employee [], Product []);
 void Hard_data(Employee [], Product []);
+void Total_Employee (Employee [], int);
 
 // Function Defintion 
 void Hard_data(Employee emp[], Product prd[]){
@@ -102,7 +103,7 @@ void Display (Employee emp[], Product prd[]){
     
 }
 
-void Attendance (Employee emp[], Product prd[]){
+void Productivity (Employee emp[], Product prd[]){
     printf("\nID\tName\t\tDepartment\t\tDate of Join\tAttendance\n");
     for (int i = 0; i < 80; i++)
     {
@@ -114,4 +115,12 @@ void Attendance (Employee emp[], Product prd[]){
         printf("%d       %s        %s            %s            %d per\n", emp[i].emp_ID, emp[i].emp_Name, emp[i].Department, emp[i].Date_of_join, prd[i].Attendance);
     }
     
+}
+
+void Total_Employee (Employee emp[], int total_emp){
+    
+    for (int i = 0; i < size; i++)
+    {
+        total_emp++;
+    }
 }
