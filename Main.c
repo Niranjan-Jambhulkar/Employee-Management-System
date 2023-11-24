@@ -103,9 +103,8 @@ int main()
             }
             
         }
-        if (a = 0){
             main();
-        }
+        
         break;
 
     case 3:
