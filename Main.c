@@ -54,6 +54,7 @@ int main()
         printf("\n\n");
         printf("\n1. Add Employee\n2. Menu\n");
         printf("Enter: ");
+        fflush(stdin);
         scanf("%d", &a);
         for (; a != 2;)
         {
@@ -110,6 +111,26 @@ int main()
             }
             printf("\n\n");
         Productivity(ptre,ptrp);
+        printf("\nEnter Employee ID to view more details of Employee Productivity\nPress 0 to Main Menu\n");
+        printf("Enter: ");
+        scanf("%d", &a);
+        for (; a != 0;)
+        {
+                Productivity_Details(emp, prd, a);
+                printf("\n");
+                printf("Press 1 to back: ");
+                scanf("%d", &a);
+                if (a == 1)
+                {
+                    Productivity(ptre,ptrp);
+                    printf("\n");
+                    printf("\nEnter Employee ID to view more details of Employee Productivity\nPress 0 to Main Menu\n");
+                    printf("Enter: ");
+                    scanf("%d", &a);
+                }
+        }
+        main();
+        break;
 
     default:
         break;
