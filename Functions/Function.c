@@ -32,6 +32,7 @@ void Hard_data(Employee [], Product []);
 void Total_Employee (Employee [], int);
 void Employee_Details (Employee [], int);
 void Productivity_Details (Employee [], Product [],int);
+void Edit_Employee_Details (Employee[], Product [], int, int);
 // Functions Declaration End
 
 // Functions Defintion Start
@@ -44,9 +45,9 @@ void Hard_data(Employee emp[], Product prd[]){
     strcpy(emp[0].emp_Address, "Pune, Maharashtra, India");
     strcpy(emp[0].emp_Number, "775609265");
     strcpy(emp[0].emp_Email, "Raj@outlook.com");
-    prd[0].Attendance = 90;
-    prd[0].Productivity = 95;
-    prd[0].Leaves = 8;
+    prd[0].Attendance = 100;
+    prd[0].Productivity = 100;
+    prd[0].Leaves = 15;
 
     emp[1].emp_ID = 2;
     strcpy(emp[1].emp_Name,"Rahul   ");
@@ -66,7 +67,7 @@ void Hard_data(Employee emp[], Product prd[]){
     emp[2].emp_salary = 40000;
     strcpy(emp[2].Department, "Sales Ext");
     strcpy(emp[2].Date_of_join, "25-04-2022");
-    strcpy(emp[2].emp_Address, "Pune, Maharashtra, Pune");
+    strcpy(emp[2].emp_Address, "Pune, Maharashtra, India");
     strcpy(emp[2].emp_Number, "915839194");
     strcpy(emp[2].emp_Email, "Raju@outlook.com");
     prd[2].Attendance = 80;
@@ -102,9 +103,15 @@ void Accept (Employee emp[], Product prd[]){
 
         printf("Enter Mobile Number: ");
         scanf("%10s", &emp[i].emp_Number);      //Using Filed width specifier to validate input data
+        fflush(stdin);
 
-        // printf("Enter Attendance: ");
-        // scanf("%d", &prd[i].Attendance);
+        printf("Enter E-mail ID: ");
+        gets(emp[i].emp_Email);
+
+        prd[i].Leaves = 15;
+        prd[i].Attendance = 100;
+        prd[i].Productivity = 100;
+
         break;
     }
     size++;
@@ -238,5 +245,49 @@ void Productivity_Details (Employee emp[], Product prd[],int a){
             }
                 printf("\n");
     }
+}
+
+void Edit_Employee_Details (Employee emp[], Product prd[], int a, int option){
+    int e = a-1;
+    // for (int i = 0; i < 80; i++)
+    // {
+    //     printf("-");
+    // }
+    // printf("\n");
+    // printf("Select what you want to edit: \n\n");
+    // printf("1. Change Name\t\t5. Change Number\n");
+    // printf("2. Change Salary\t6. Change Email\n");
+    // printf("3. Change Department\t7. Change Attendance\n");
+    // printf("4. Change Address\t8. Change Productivity\n");
+    // printf("9. Change Leaves\t9. Back\n");
+    // for (int i = 0; i < 80; i++)
+    // {
+    //     printf("-");
+    // }
+    // printf("\n");
+    // printf("Enter: ");
+    // scanf("%d", &option);
+    switch (option)
+    {
+    case 1:
+        fflush(stdin);
+        printf("Enter Name for Employee %d:", a);
+        gets(emp[e].emp_Name);
+        printf("Name changed!");
+        break;
+    
+    default:
+        break;
+    }
+
+    // for (int i = a; i <= a; i++)
+    // {
+    //     printf("\nEnter Attendance of Employee %d: ", i);
+    //     scanf("%3d", &prd[i].Attendance);
+    //     fflush(stdin);                          // Using fflush to remove buffer
+
+    //     printf("Enter Productivity of Employee %d: ", i);
+    //     scanf("%d", &prd[i].Productivity);
+    // }
 }
 // Functions Defintion End
