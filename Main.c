@@ -4,7 +4,7 @@
 int main()
 {
     int total_emp=0;
-    int option;
+    int option, a;
     static int hard_emp = 0;
     // declaring structure employee variable name
     // declaring in static because it should remain constant without changing or deleting its given value throughout the program
@@ -16,7 +16,8 @@ int main()
     ptre = emp;  // emp is array so don't use "&" operator 
     ptrp = prd;
 
-    // We run Hard data function before menu because we need to assign data for 0,1,2 index first.
+    // Run Hard data function before menu because we need to assign data for 0,1,2 index.
+    // We will run this operation only for one time because once the value are assign it should stop for entire program life
     for (; hard_emp < 1; hard_emp++)
     {
         Hard_data(ptre,ptrp);
@@ -38,14 +39,14 @@ int main()
     // printf("\n--------Employee Management System--------\n");
     printf("\n\n");
     printf("1. Add Employee\n2. View Employee\n3. View Productivity\n4. Edit Details\n");
-    printf("Select one option: ");
+    printf("\nSelect one option: ");
     scanf("%d", &Menu);  
     switch (Menu)
     {
     fflush(stdin);
     case 1:
         Accept(ptre,ptrp);
-        int a=0;
+        printf("\n");
         for (int i = 0; i < 5; i++)
         {
             printf("-");
@@ -55,7 +56,7 @@ int main()
         {
             printf("-");
         }
-        printf("\n\n");
+        printf("\n");
         printf("\n1. Add Employee\n2. Menu\n");
         printf("Enter: ");
         fflush(stdin);
@@ -154,7 +155,7 @@ int main()
             printf("2. Change Salary\t6. Change Email\n");
             printf("3. Change Department\t7. Change Attendance\n");
             printf("4. Change Address\t8. Change Productivity\n");
-            printf("9. Change Leaves\t9. Back\n");
+            printf("9. Change Leaves\t10. Back\n");
             for (int i = 0; i < 80; i++)
             {
                 printf("-");
@@ -162,7 +163,7 @@ int main()
             printf("\n");
             printf("Enter: ");
             scanf("%d", &option);
-            if (option == 9)
+            if (option == 10)
             {
                 Display(ptre,prd);
                 printf("\nSelect Employee to edit details:\nPress 0 to main menu\n");
