@@ -54,6 +54,7 @@ int main()
         printf("\n\n");
         printf("\n1. Add Employee\n2. Menu\n");
         printf("Enter: ");
+        fflush(stdin);
         scanf("%d", &a);
         for (; a != 2;)
         {
