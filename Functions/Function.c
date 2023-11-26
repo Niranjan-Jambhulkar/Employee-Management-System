@@ -76,7 +76,16 @@ void Hard_data(Employee emp[], Product prd[]){
 }
 
 void Accept (Employee emp[], Product prd[]){
-    printf("\n--------Enter Employee Details--------\n");
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n\t\t\tEnter Employee Details\n");
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n");
     for (int i = size; i <= size; i++)
     {
         printf("\nEnter Employee ID: ");
@@ -119,7 +128,11 @@ void Accept (Employee emp[], Product prd[]){
 }
 
 void Display (Employee emp[], Product prd[]){ 
-    printf("\n--------Employee List--------\n");
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n\t\t\t\tEmployee List\n");
     for (int i = 0; i < 80; i++)
     {
         printf("-");
@@ -142,7 +155,11 @@ void Display (Employee emp[], Product prd[]){
 }
 
 void Productivity (Employee emp[], Product prd[]){
-    printf("\n--------Employee Productivity--------\n");
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n\t\t\tEmployee Productivity\n");
     for (int i = 0; i < 80; i++)
     {
         printf("-");
@@ -174,15 +191,20 @@ void Total_Employee (Employee emp[], int total_emp){
 }
 
 void Employee_Details (Employee emp[], int a){
-    printf("\n--------Employee Details--------\n");
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n\t\t\t\tEmployee Details\n");
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n");
     if (a<=size)
     {
         for (int i = a-1; i < size;)  // Using a-1 because 1st employee is stored on 0 index, and so on 
         {
-            for (int i = 0; i < 80; i++)
-            {
-                printf("-");
-            }
             printf("\nID: \t\t%d\nName: \t\t%s\nDepartment: \t%s\nDate of Join: \t%s\nSalary: \t%f\nAddress: \t%s\nMo. Number: \t+91 %s\nE-Mail ID: \t%s\n", emp[i].emp_ID, emp[i].emp_Name, emp[i].Department, emp[i].Date_of_join, emp[i].emp_salary, emp[i].emp_Address, emp[i].emp_Number, emp[i].emp_Email);
             for (int i = 0; i < 80; i++)
             {
@@ -207,6 +229,11 @@ void Employee_Details (Employee emp[], int a){
 }
 
 void Productivity_Details (Employee emp[], Product prd[],int a){
+    for (int i = 0; i < 65; i++)
+    {
+        printf("-");
+    }
+    printf("\n|\t\t\tProductivity Details\t\t\t|\n");
     if (a<=size)
     {
         for (int i = a-1; i < size;)  // Using a-1 because 1st employee is stored on 0 index, and so on 

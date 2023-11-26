@@ -149,6 +149,11 @@ int main()
             {
                 printf("-");
             }
+            printf("\n\t\t\tEdit Employee Details\n");
+            for (int i = 0; i < 80; i++)
+            {
+                printf("-");
+            }
             printf("\n");
             printf("Select what you want to edit: \n\n");
             printf("1. Change Name\t\t5. Change Number\n");
