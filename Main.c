@@ -5,7 +5,7 @@ int main()
 {
     int total_emp=0;
     int option, a;
-    static int hard_emp = 0;
+    static int hard_emp = 0, Log_value = 0;
     // declaring structure employee variable name
     // declaring in static because it should remain constant without changing or deleting its given value throughout the program
     static Employee emp[100];
@@ -13,17 +13,28 @@ int main()
     static Product prd[100];
     Product *ptrp;
 
+    static Login log[20];
+    Login *ptrl;
+
     ptre = emp;  // emp is array so don't use "&" operator 
     ptrp = prd;
+    ptrl = log;
 
     // Run Hard data function before menu because we need to assign data for 0,1,2 index.
     // We will run this operation only for one time because once the value are assign it should stop for entire program life
     for (; hard_emp < 1; hard_emp++)
     {
-        Hard_data(ptre,ptrp);
+        Hard_data(ptre,ptrp, ptrl);
     }
     Total_Employee (ptre, total_emp);
 
+    // Start
+    // This will run only one time, that is at the start of the program.
+    for (; Log_value < 1;)
+    {
+        Login_Page(ptrl,&Log_value);
+    }
+    
     // Main Menu start
     int Menu;
     printf("\n");
@@ -38,7 +49,7 @@ int main()
         }
     // printf("\n--------Employee Management System--------\n");
     printf("\n\n");
-    printf("1. Add Employee\n2. View Employee\n3. View Productivity\n4. Edit Details\n");
+    printf("1. Add Employee\n2. View Employee\n3. View Productivity\n4. Edit Details\n5. Logout\n");
     printf("\nSelect one option: ");
     scanf("%d", &Menu);  
     switch (Menu)
@@ -149,6 +160,11 @@ int main()
             {
                 printf("-");
             }
+            printf("\n\t\t\tEdit Employee Details\n");
+            for (int i = 0; i < 80; i++)
+            {
+                printf("-");
+            }
             printf("\n");
             printf("Select what you want to edit: \n\n");
             printf("1. Change Name\t\t5. Change Number\n");
@@ -179,8 +195,10 @@ int main()
         }
         main();
         
+    case 5:
+        Log_value = 0;
+        main();
         
-
     default:
         break;
     }

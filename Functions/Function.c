@@ -1,8 +1,16 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 static int size = 3;  // This is global/extern variable
 
 // Structures Start
+typedef struct Login_Details
+{
+    char User_name[10];
+    char Password[10];
+} Login;
+
+
 typedef struct Productivity
 {
     int Attendance;
@@ -19,16 +27,17 @@ typedef struct Employees
     char Department[20];
     char Date_of_join[20];
     char emp_Address[50];
-    char emp_Number[10];
+    char emp_Number[11];
     char emp_Email[20];
 }Employee;
 // Structures End
 
 // Functions Declaration Start
+void Login_Page (Login [], int *);
 void Accept (Employee [], Product []);
 void Display (Employee [], Product []);
 void Productivity (Employee [], Product []);
-void Hard_data(Employee [], Product []);
+void Hard_data(Employee [], Product [], Login []);
 void Total_Employee (Employee [], int);
 void Employee_Details (Employee [], int);
 void Productivity_Details (Employee [], Product [],int);
@@ -36,7 +45,52 @@ void Edit_Employee_Details (Employee[], Product [], int, int);
 // Functions Declaration End
 
 // Functions Defintion Start
-void Hard_data(Employee emp[], Product prd[]){
+void Login_Page (Login log[], int *log_value){
+    int logopt;
+    char user_name[10], user_pass[10];
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n\tEmployee Management System\n");
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n");
+    printf("Press 1 for Login\nPress 2 to exit\n");
+    printf("Enter: ");
+    scanf("%d", &logopt);
+    switch (logopt)
+    {
+    case 1:
+        fflush(stdin);
+        printf("Enter User Name: ");
+        gets(user_name);
+        fflush(stdin);
+        printf("Enter Password: ");
+        gets(user_pass);
+        if (strcmp(user_name, log[0].User_name) == 0)
+        {
+            if (strcmp(user_pass, log[0].Password) == 0)
+            {
+                printf("Login successfully done!\n");
+                *log_value = 1;
+            }
+        }
+        else{
+            printf("\n!!! Incorrect User name or Password !!!\n");
+        }
+        break;
+    case 2:
+        exit (0);
+    default:
+        printf("\n!!! Selected Invalid option !!!\n");
+        break;
+    }
+}
+
+void Hard_data(Employee emp[], Product prd[], Login log[]){
     emp[0].emp_ID = 1;
     strcpy(emp[0].emp_Name,"Raj     ");
     emp[0].emp_salary = 60000;
@@ -73,10 +127,23 @@ void Hard_data(Employee emp[], Product prd[]){
     prd[2].Attendance = 80;
     prd[2].Productivity = 75;
     prd[2].Leaves = 5;
+
+    // Set user login details
+    strcpy(log[0].User_name, "Niraj");
+    strcpy(log[0].Password, "1234");
 }
 
 void Accept (Employee emp[], Product prd[]){
-    printf("\n--------Enter Employee Details--------\n");
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n\t\t\tEnter Employee Details\n");
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n");
     for (int i = size; i <= size; i++)
     {
         printf("\nEnter Employee ID: ");
@@ -94,7 +161,7 @@ void Accept (Employee emp[], Product prd[]){
         gets(emp[i].Department);
 
         printf("Enter Date of join: ");
-        scanf("%10s",&emp[i].Date_of_join);      //Using Filed width specifier to validate input data
+        scanf("%10s",emp[i].Date_of_join);      //Using Filed width specifier to validate input data
         fflush(stdin);
 
         printf("Enter Address: ");
@@ -102,7 +169,7 @@ void Accept (Employee emp[], Product prd[]){
         fflush(stdin);
 
         printf("Enter Mobile Number: ");
-        scanf("%10s", &emp[i].emp_Number);      //Using Filed width specifier to validate input data
+        scanf("%10s", emp[i].emp_Number);      //Using Filed width specifier to validate input data
         fflush(stdin);
         
         printf("Enter E-mail ID: ");
@@ -119,7 +186,11 @@ void Accept (Employee emp[], Product prd[]){
 }
 
 void Display (Employee emp[], Product prd[]){ 
-    printf("\n--------Employee List--------\n");
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n\t\t\t\tEmployee List\n");
     for (int i = 0; i < 80; i++)
     {
         printf("-");
@@ -142,7 +213,11 @@ void Display (Employee emp[], Product prd[]){
 }
 
 void Productivity (Employee emp[], Product prd[]){
-    printf("\n--------Employee Productivity--------\n");
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n\t\t\tEmployee Productivity\n");
     for (int i = 0; i < 80; i++)
     {
         printf("-");
@@ -174,15 +249,20 @@ void Total_Employee (Employee emp[], int total_emp){
 }
 
 void Employee_Details (Employee emp[], int a){
-    printf("\n--------Employee Details--------\n");
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n\t\t\t\tEmployee Details\n");
+    for (int i = 0; i < 80; i++)
+    {
+        printf("-");
+    }
+    printf("\n");
     if (a<=size)
     {
         for (int i = a-1; i < size;)  // Using a-1 because 1st employee is stored on 0 index, and so on 
         {
-            for (int i = 0; i < 80; i++)
-            {
-                printf("-");
-            }
             printf("\nID: \t\t%d\nName: \t\t%s\nDepartment: \t%s\nDate of Join: \t%s\nSalary: \t%f\nAddress: \t%s\nMo. Number: \t+91 %s\nE-Mail ID: \t%s\n", emp[i].emp_ID, emp[i].emp_Name, emp[i].Department, emp[i].Date_of_join, emp[i].emp_salary, emp[i].emp_Address, emp[i].emp_Number, emp[i].emp_Email);
             for (int i = 0; i < 80; i++)
             {
@@ -207,6 +287,11 @@ void Employee_Details (Employee emp[], int a){
 }
 
 void Productivity_Details (Employee emp[], Product prd[],int a){
+    for (int i = 0; i < 65; i++)
+    {
+        printf("-");
+    }
+    printf("\n|\t\t\tProductivity Details\t\t\t|\n");
     if (a<=size)
     {
         for (int i = a-1; i < size;)  // Using a-1 because 1st employee is stored on 0 index, and so on 
