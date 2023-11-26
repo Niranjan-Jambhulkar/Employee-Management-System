@@ -19,7 +19,7 @@ typedef struct Employees
     char Department[20];
     char Date_of_join[20];
     char emp_Address[50];
-    char emp_Number[10];
+    char emp_Number[11];
     char emp_Email[20];
 }Employee;
 // Structures End
@@ -94,7 +94,7 @@ void Accept (Employee emp[], Product prd[]){
         gets(emp[i].Department);
 
         printf("Enter Date of join: ");
-        scanf("%10s",&emp[i].Date_of_join);      //Using Filed width specifier to validate input data
+        scanf("%10s",emp[i].Date_of_join);      //Using Filed width specifier to validate input data
         fflush(stdin);
 
         printf("Enter Address: ");
@@ -102,7 +102,7 @@ void Accept (Employee emp[], Product prd[]){
         fflush(stdin);
 
         printf("Enter Mobile Number: ");
-        scanf("%10s", &emp[i].emp_Number);      //Using Filed width specifier to validate input data
+        scanf("%10s", emp[i].emp_Number);      //Using Filed width specifier to validate input data
         fflush(stdin);
         
         printf("Enter E-mail ID: ");
