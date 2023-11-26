@@ -74,7 +74,7 @@ void Login_Page (Login log[], int *log_value){
         {
             if (strcmp(user_pass, log[0].Password) == 0)
             {
-                printf("Login successfully done!\n");
+                printf("\nLogin successfully done!\n");
                 *log_value = 1;
             }
         }
