@@ -189,9 +189,6 @@ int main()
             else{
             Edit_Employee_Details(ptre,ptrp,a,option);
             }
-            // Display(ptre,prd);
-            // printf("\nSelect Employee to edit details:\nPress 0 to main menu");
-            // scanf("%d", &a);
         }
         main();
         
