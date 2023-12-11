@@ -49,6 +49,7 @@ void Edit_Employee_Details (Employee[], Product [], int, int);
 void Login_Page (Login log[], int *log_value){
     int logopt;
     char user_name[10], user_pass[10];
+    printf("\n");
     for (int ib = 0; ib < 1;)
     {
         for (int i = 0; i < 80; i++)
@@ -68,7 +69,7 @@ void Login_Page (Login log[], int *log_value){
         {
         case 1:
             fflush(stdin);
-            printf("Enter User Name: ");
+            printf("\nEnter User Name: ");
             gets(user_name);
             fflush(stdin);
             printf("Enter Password: ");
@@ -79,16 +80,14 @@ void Login_Page (Login log[], int *log_value){
                 {
                     if (strcmp(user_pass, log[i].Password) == 0)
                     {
-                        printf("\nLogin successfully done!\n");
+                        printf("\nLogin successfully done!\n\n");
                         ib++;
                         *log_value = 1;
-                    }
-                }
-                else{
-                    printf("\n!!! Incorrect User name or Password !!!\n");
+                        break;
+                    }      
                 }
             }
-                
+            // printf("\n!!! Incorrect User name or Password !!!\n\n");
             break;
 
         case 2:
@@ -99,7 +98,7 @@ void Login_Page (Login log[], int *log_value){
             fflush(stdin);
             printf("Set Password: ");
             gets(log[user_profiles].Password);
-            printf("\n User Created Successfully !\n");
+            printf("\n! User Created Successfully !\n\n");
             user_profiles++;
             break;
 
@@ -107,11 +106,10 @@ void Login_Page (Login log[], int *log_value){
             exit (0);
             break;
         default:
-            printf("\n!!! Selected Invalid option !!!\n");
+            printf("\n!!! Selected Invalid option !!!\n\n");
             break;
         }
     }
-    
 }
 
 void Hard_data(Employee emp[], Product prd[], Login log[]){

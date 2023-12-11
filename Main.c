@@ -37,13 +37,12 @@ int main()
     
     // Main Menu start
     int Menu;
-    printf("\n");
-     for (int i = 0; i < 10; i++)
+     for (int i = 0; i < 80; i++)
         {
             printf("-");
         }
-        printf("Employee Management System");
-        for (int i = 0; i < 10; i++)
+    printf("\n\tEmployee Management System\n");
+    for (int i = 0; i < 80; i++)
         {
             printf("-");
         }
