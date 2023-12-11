@@ -2,6 +2,7 @@
 #include<string.h>
 #include<stdlib.h>
 static int size = 3;  // This is global/extern variable
+static int user_profiles = 1;
 
 // Structures Start
 typedef struct Login_Details
@@ -48,46 +49,69 @@ void Edit_Employee_Details (Employee[], Product [], int, int);
 void Login_Page (Login log[], int *log_value){
     int logopt;
     char user_name[10], user_pass[10];
-    for (int i = 0; i < 80; i++)
+    for (int ib = 0; ib < 1;)
     {
-        printf("-");
-    }
-    printf("\n\tEmployee Management System\n");
-    for (int i = 0; i < 80; i++)
-    {
-        printf("-");
-    }
-    printf("\n");
-    printf("Press 1 for Login\nPress 2 to exit\n");
-    printf("Enter: ");
-    scanf("%d", &logopt);
-    switch (logopt)
-    {
-    case 1:
-        fflush(stdin);
-        printf("Enter User Name: ");
-        gets(user_name);
-        fflush(stdin);
-        printf("Enter Password: ");
-        gets(user_pass);
-        if (strcmp(user_name, log[0].User_name) == 0)
+        for (int i = 0; i < 80; i++)
         {
-            if (strcmp(user_pass, log[0].Password) == 0)
+            printf("-");
+        }
+        printf("\n\tEmployee Management System\n");
+        for (int i = 0; i < 80; i++)
+        {
+            printf("-");
+        }
+        printf("\n");
+        printf("Press 1 for Login\nPress 2 for Sign up\nPress 3 to exit\n");
+        printf("Enter: ");
+        scanf("%d", &logopt);
+        switch (logopt)
+        {
+        case 1:
+            fflush(stdin);
+            printf("Enter User Name: ");
+            gets(user_name);
+            fflush(stdin);
+            printf("Enter Password: ");
+            gets(user_pass);
+            for (int i = 0; i < user_profiles; i++)
             {
-                printf("\nLogin successfully done!\n");
-                *log_value = 1;
+                if (strcmp(user_name, log[i].User_name) == 0)
+                {
+                    if (strcmp(user_pass, log[i].Password) == 0)
+                    {
+                        printf("\nLogin successfully done!\n");
+                        ib++;
+                        *log_value = 1;
+                    }
+                }
+                else{
+                    printf("\n!!! Incorrect User name or Password !!!\n");
+                }
             }
+                
+            break;
+
+        case 2:
+            printf("\nFill the following\n");
+            fflush(stdin);
+            printf("Set User name: ");
+            gets(log[user_profiles].User_name);
+            fflush(stdin);
+            printf("Set Password: ");
+            gets(log[user_profiles].Password);
+            printf("\n User Created Successfully !\n");
+            user_profiles++;
+            break;
+
+        case 3:
+            exit (0);
+            break;
+        default:
+            printf("\n!!! Selected Invalid option !!!\n");
+            break;
         }
-        else{
-            printf("\n!!! Incorrect User name or Password !!!\n");
-        }
-        break;
-    case 2:
-        exit (0);
-    default:
-        printf("\n!!! Selected Invalid option !!!\n");
-        break;
     }
+    
 }
 
 void Hard_data(Employee emp[], Product prd[], Login log[]){
