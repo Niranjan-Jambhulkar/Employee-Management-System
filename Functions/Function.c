@@ -82,11 +82,12 @@ void Login_Page (Login log[], int *log_value){
                         printf("\nLogin successfully done!\n");
                         ib++;
                         *log_value = 1;
-                        break;
                     }
                 }
+                else{
+                    printf("\n!!! Incorrect User name or Password !!!\n");
+                }
             }
-            printf("\n!!! Incorrect User name or Password !!!\n");
                 
             break;
 
