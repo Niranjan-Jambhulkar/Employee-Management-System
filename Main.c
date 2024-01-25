@@ -3,9 +3,11 @@
 #include "E:\C Project\Employee Management System\Functions\Function.c"  // Linkage
 int main()
 {
-    int total_emp=0;
-    int option, a;
+    // declaring variables
+    int total_emp=0; 
+    int option, a; 
     static int hard_emp = 0, Log_value = 0;
+
     // declaring structure employee variable name
     // declaring in static because it should remain constant without changing or deleting its given value throughout the program
     static Employee emp[100];
