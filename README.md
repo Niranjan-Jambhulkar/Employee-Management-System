@@ -1,3 +1,5 @@
+An employee management system project is a software application that helps an organization manage and monitor the information and activities of its employees.
+
 **Adding Employees:**
 The system allows users to input employee details such as ID, name, salary, Department, Date_of_join, and etc.
 These details are then stored in a array.
